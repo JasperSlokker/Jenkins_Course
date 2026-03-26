@@ -29,11 +29,16 @@ pipeline {
             }
         }
         stage('Test'){
-            steps{
-            echo "Test Stage"
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                echo "Test Stage"
                 // Optioneel: als je ook echt de npm testen wilt draaien:
-                dir('learn-jenkins-app')
-                    {
+                dir('learn-jenkins-app') {
                     sh 'npm test'
                 }
             }
