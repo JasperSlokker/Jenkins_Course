@@ -30,6 +30,8 @@ pipeline {
                 // Optioneel: als je ook echt de npm testen wilt draaien:
                 dir('learn-jenkins-app') {
                     sh 'test -f build/index.html'
+
+                    sh 'npm test'
                 }
             }
         }
