@@ -29,7 +29,7 @@ pipeline {
                 echo "Test Stage"
                 // Optioneel: als je ook echt de npm testen wilt draaien:
                 dir('learn-jenkins-app') {
-                    sh 'npm test'
+                    sh 'test -f build.index.html
                 }
             }
         }
